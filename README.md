@@ -123,4 +123,5 @@ swap	the	first	and	last	letters?	Can	you	then	write	a	loop	that	on	the	next	iter
 2nd-to-last	letters?	When	would	this	loop	end?	What	about	even-length	and	odd-length	strings?
 You	will	need	to	add	new	code	to	“main”	to	print	out	the	results	on	the	console.
 
-#Compiled subroutines with main and data is in file final_string_functions.s
+# Skeleton file of string functions is named string_functions.s
+# Compiled subroutines with main and data is named final_string_functions.s
