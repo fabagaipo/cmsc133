@@ -126,3 +126,4 @@ You	will	need	to	add	new	code	to	“main”	to	print	out	the	results	on	the	cons
 # Note:
 - Skeleton file of string functions is named string_functions.s
 - Compiled subroutines with main and data is named final_string_functions.s
+- -C Language equivalents of subroutines are in c-language-equivalents.c
