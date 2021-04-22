@@ -1,7 +1,7 @@
 # cmsc133
 code list for cmsc 133 computer architecture and organization; mips and c language
 
-#Lab 1 Task One: integer_array_sum
+# Lab 1 Task One: integer_array_sum
 
 Have	a	look	at	the	subroutine	integer_array_sum.	This	routine	should	iterate	through	a	set	of	numbers	
 (words,	so	4	bytes	each)	and	add	them	up.	The	result	should	be	returned	to	the	caller.	Remember	that	
@@ -44,7 +44,7 @@ The	 third	number	is	stored	at	address	FIBONACCI_ARRAY	+	 8.
 Therefore,	since	each	word	is	4	bytes	further	along	than	the	previous	one,	we	can	calculate	the	address of	 the	Nth	number	with	FIBONACCI_ARRAY+n*4. 
 To	be	able	 to	sum	all	 the	numbers	in	 the	array	you	will	need	to	write	a	loop	that	loads	each	value	in	thearray	and	adds	them	up	into	a	register.
 
-#Lab 1 Task Two: string_length
+# Lab 1 Task Two: string_length
 
 For	 this	 task	 you	 will	 write	 a	 subroutine	 that	 takes	 the	memory	 address	 of	 a	 string	 and	 returns	 the	
 number	of	characters	in	that	string.
@@ -60,7 +60,7 @@ terminating	NULL	is	found.
 Because	each	character	is	one	byte,	we	must	only	increase	the	address	by	1	byte	each	time	in	the	loop.	
 Finish	the	subroutine	string_length	and	be	sure	to	include	clear	comments.
 
-#Lab 1 Task Three: string_for_each
+# Lab 1 Task Three: string_for_each
 
 This	routine	will	take	the	memory	address	of	a	string	and	the	memory	address	of	another	subroutine.
 
@@ -68,12 +68,12 @@ It	will	the	go	through	every	letter	in	the	string	and	for	each	letter	call	the	s
 High	level	languages	can	take	a	string	and	print	out	each	character	on	a	separate	line.	
 
 For	example,	the	string	"ABCabc"	would	be	print	out	as:
--Ascii('A')	=	65	(0x41)	
--Ascii('B')	=	66	(0x42)	
--Ascii('C')	=	67	(0x43)	
--Ascii('a')	=	97	(0x61)	
--Ascii('b')	=	98	(0x62)	
--Ascii('c')	=	99	(0x63)
+- Ascii('A')	=	65	(0x41)	
+- Ascii('B')	=	66	(0x42)	
+- Ascii('C')	=	67	(0x43)	
+- Ascii('a')	=	97	(0x61)	
+- Ascii('b')	=	98	(0x62)	
+- Ascii('c')	=	99	(0x63)
 
 We	would	like	to	have	something	similar	to	this	in	MIPS	assembly.
 We	can	achieve	this	by	writing	a	subroutine	string_for_each	taking	the	address	to	a	string	as	the	first	
@@ -99,7 +99,7 @@ be	 able	 to	 write	 out	 all	 the	 ASCII	 values	 in	 the	 string	 correctly.	 
 especially	the	empty	string	"".	You	can	test	with	different	strings	by	either	modifying	the	string	used	by	
 the	main	subroutine	or	by	creating	your	own	strings.
 
-#Lab 1 Task Four: to_upper
+# Lab 1 Task Four: to_upper
 
 Here	you	will	write	a	subroutine	that	takes	an	address	to	a	letter,	determines	the	upper	case	version	of	
 that	letter,	and	stores	it	back	into	the	same	memory	location.	(E.g.,	it	changes	the	data	in	memory	to	
@@ -110,7 +110,7 @@ HINT:	Have	a	look	at	the	ASCII	table	below...	What	is	the	difference	between	a	l
 upper	case	'A'?	When	do	you	need	to	change	the	character	and	when	not?	(To	read	the	table,	you	can	
 see	that	‘A’	=	0x41	and	‘a’	=	0x61.)
 
-#Lab 1 Task Five: reverse_string
+# Lab 1 Task Five: reverse_string
 
 Write	a	subroutine	to	reverse	a	string.	When	given	a	string	such	as	“ABC”	as	input	it	should	produce	
 “CBA”	as	the	output.
