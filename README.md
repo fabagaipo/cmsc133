@@ -124,5 +124,5 @@ swap	the	first	and	last	letters?	Can	you	then	write	a	loop	that	on	the	next	iter
 You	will	need	to	add	new	code	to	“main”	to	print	out	the	results	on	the	console.
 
 # Note:
--Skeleton file of string functions is named string_functions.s
--Compiled subroutines with main and data is named final_string_functions.s
+- Skeleton file of string functions is named string_functions.s
+- Compiled subroutines with main and data is named final_string_functions.s
