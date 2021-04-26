@@ -106,7 +106,7 @@ that	letter,	and	stores	it	back	into	the	same	memory	location.	(E.g.,	it	changes
 uppercase.)	 We	 will	 then	 use	 this	 in	 the	 string_for_each	 subroutine	 to convert	 a	 whole	 string	 to	
 uppercase.
 
-HINT:	Have	a	look	at	the	ASCII	table	below...	What	is	the	difference	between	a	lower	case	'a'	and	the	
+HINT:	What	is	the	difference	between	a	lower	case	'a'	and	the	
 upper	case	'A'?	When	do	you	need	to	change	the	character	and	when	not?	(To	read	the	table,	you	can	
 see	that	‘A’	=	0x41	and	‘a’	=	0x61.)
 
