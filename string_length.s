@@ -1,5 +1,5 @@
 string_length:
-	li $t0, 0 					# Initialize count to zero
+	li $t0, 0 				# Initialize count to zero
 
 	loop1:
 	lb $t1, 0($a0) 				# Load next character into $t1
@@ -12,4 +12,4 @@ string_length:
 	
 end_for_all:
 	
-	jr	$ra						# Return to caller.
+	jr	$ra				# Return to caller.
