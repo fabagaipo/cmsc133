@@ -25,10 +25,10 @@ STR_str:
 ##############################################################################
 #
 # DESCRIPTION:  For an array of integers, returns the total sum of all
-#				elements in the array.
+#		elements in the array.
 #
 # INPUT:        $a0 - address to first integer in array.
-#				$a1 - size of array, i.e., numbers of integers in the array.
+#		$a1 - size of array, i.e., numbers of integers in the array.
 #
 # OUTPUT:       $v0 - the total sum of all integers in the array.
 #
@@ -37,13 +37,13 @@ integer_array_sum:
 
 DBG:	##### DEBUG BREAKPOINT ######
 
-    addi $v0, $zero, 0   		# Initialize Sum to zero.
-	add	$t0, $zero, $zero		# Initialize array index i to zero.
+    addi $v0, $zero, 0   			# Initialize Sum to zero.
+    add	$t0, $zero, $zero			# Initialize array index i to zero.
 	
 for_all_in_array:
 	
 	slt $t1, $t0, $a1 			# Compare, $t1 = i < sum ? 1 : 0
-	beq $t1, $0, end_for_all 	# If i is not < 10, exit the loop
+	beq $t1, $0, end_for_all 		# If i is not < 10, exit the loop
 	lw $t1, 0($a0) 				# Load current array element into t1
 	add $v0, $v0, $t1 			# Add value to sum
 	addi $t0, $t0, 1 			# Increment the count (i)
@@ -52,7 +52,7 @@ for_all_in_array:
 
 end_for_all:
 	
-	jr	$ra						# Return to caller.
+	jr	$ra				# Return to caller.
 	
 ##############################################################################
 #
@@ -68,11 +68,11 @@ end_for_all:
 
 
 string_length:
-	li $t0, 0 					# Initialize count to zero
+	li $t0, 0 				# Initialize count to zero
 
 	loop1:
 	lb $t1, 0($a0) 				# Load next character into $t1
-	beq $t1, $zero, end_for_all # Check null character
+	beq $t1, $zero, end_for_all 		# Check null character
 	addi $a0, $a0, 1 			# Increment the string pointer
 	addi $t0, $t0, 1 			# Increment the count
 	addi $v0, $t0, 0 			# Move length of string to $v0
@@ -83,34 +83,34 @@ string_length:
 ##############################################################################
 #
 #  DESCRIPTION: For each of the characters in a string (from left to right),
-#				call a callback subroutine.
+#		call a callback subroutine.
 #
-#				The callback suboutine will be called with the address of
-#	        	the character as the input parameter ($a0).
+#		The callback suboutine will be called with the address of
+#	        the character as the input parameter ($a0).
 #	
 #      	 INPUT: $a0 - address to a NUL terminated string.
 #
-#				$a1 - address to a callback subroutine.
+#		$a1 - address to a callback subroutine.
 #
 ##############################################################################	
 string_for_each:
 
-	addi $sp, $sp, -12				# PUSH return address to caller
-	sw	$ra, 0($sp)
-	sw  $a1, 8($sp)                 # Store $a1
+	addi $sp, $sp, -12		# PUSH return address to caller
+	sw $ra, 0($sp)
+	sw $a1, 8($sp)                 # Store $a1
 	
 	loop2:
 	sw  $a0, 4($sp)                 # Store $a0 as it will be used for argument
-    lb  $t0, 0($a0)                 # Get current character
-    beq $t0, $zero, end_for_each    # Check null character
-    jalr  $a1                       # Call callback subroutine
+    	lb  $t0, 0($a0)                 # Get current character
+    	beq $t0, $zero, end_for_each    # Check null character
+    	jalr  $a1                       # Call callback subroutine
 	lw  $a0, 4($sp)                 # Load stored $ao
-    lw  $a1, 8($sp)                 # Load stored $a1
-    addi $a0, $a0, 1             	# Increment the count for next character in string
-    j   loop2
+    	lw  $a1, 8($sp)                 # Load stored $a1
+    	addi $a0, $a0, 1             	# Increment the count for next character in string
+    	j   loop2
 
 end_for_each:
-	lw	$ra, 0($sp)					# Pop return address to caller
+	lw	$ra, 0($sp)		# Pop return address to caller
 	addi $sp, $sp, 12		
 	jr	$ra
 
@@ -123,11 +123,11 @@ end_for_each:
 ##############################################################################		
 to_upper:
 
-	lb $t1, 0($a0) 					#Load character from the memory address
-    blt $t1, 'a', upper_end			#Two branches: less than or greater than
-    bgt $t1, 'z', upper_end			#to check if upper or lower
-    sub $t1, $t1, 32				#$t1 = $t1 - 32
-    sb $t1, 0($a0) 					#Store back changed $t1 to memory address
+	lb $t1, 0($a0) 				#Load character from the memory address
+    	blt $t1, 'a', upper_end			#Two branches: less than or greater than
+    	bgt $t1, 'z', upper_end			#to check if upper or lower
+    	sub $t1, $t1, 32				#$t1 = $t1 - 32
+    	sb $t1, 0($a0) 				#Store back changed $t1 to memory address
 	upper_end:
 	jr $ra
 	
@@ -136,11 +136,11 @@ to_upper:
 #  DESCRIPTION: Gives the reversal of the string.
 #	
 #        INPUT: $a0 - address of a character
-#				$a1 - length of the string
+#		$a1 - length of the string
 #
 ##############################################################################
 reverse_string:
-	blt $a1, 2, end_for_all			#Branch for string length input
+	blt $a1, 2, end_for_all				#Branch for string length input
 	la $t0, 0($a0)					#Load character from address into $t0
 	la $t1, 0($a0)					#Load character from address into $t1
 	add $t1, $t1, $a1				#Add string length value to $t1
@@ -152,7 +152,7 @@ reverse_string:
 		sb $t3, 0($t0)				#Replace rightmost character with leftmost character
 		sb $t2, 0($t1)				#Replace leftmost character with rightmost character
 		addi $t0, $t0, 1			#Increment leftmost address by 1
-		beq $t0, $t1, end_for_all	#Branch to check if $t0 and $t1 are equal, otherwise end
+		beq $t0, $t1, end_for_all		#Branch to check if $t0 and $t1 are equal, otherwise end
 		addi $t1, $t1, -1			#Decrement rightmost by 1
 		beq $t0, $t1, end_for_all
 		j reverse_loop
